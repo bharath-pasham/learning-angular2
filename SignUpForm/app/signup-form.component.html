@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="username">Username</label>
         <input id="username" type="text" class="form-control" formControlName="username">
-        <div *ngIf="form.controls.username.pending">Cehcking...</div>
+        <div *ngIf="form.controls.username.pending">Checking...</div>
         <div *ngIf="form.controls.username.touched && form.controls.username.errors">
             <div *ngIf="form.controls.username.errors.required" class="alert alert-danger">
                 Username is required
@@ -25,10 +25,11 @@
         </div>
         </div>
         <div class="form-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input id="confirm-password" type="text" class="form-control" formControlName="confirm_password">
+            <label for="confirm_password">Confirm Password</label>
+            <input id="confirm_password" type="text" class="form-control" formControlName="confirm_password">
             <div *ngIf="form.controls.confirm_password.touched && form.controls.confirm_password.errors">
-                <div *ngIf="!form.controls.confirm_password.notMatching" class="alert alert-danger">Does not match Password</div>
+                <div *ngIf="form.controls.confirm_password.errors.required" class="alert alert-danger">Password is required</div>
+                <div *ngIf="form.controls.confirm_password.errors.notMatching" class="alert alert-danger">Does not match Password</div>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Sign Up</button>
